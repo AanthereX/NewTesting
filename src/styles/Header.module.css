@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background: rebeccapurple;
+    color: white;
+    font-family: Helvetica;
+    font-weight: 300;
+    padding: 1rem;
+}
+
+.navbar_title {
+    margin-right: auto;
+    font-size: 1.66rem;
+    padding: 12px 16px;
+}
+
+.navbar_item {
+    padding: 16px 16px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    vertical-align: middle;
+    text-decoration: underline;
+}
+
+@media (max-width: 440px) {
+    .navbar_title {
+        font-size: 1.33rem;
+    }
+    .navbar_item {
+        font-size: .8rem;
+    }
+}

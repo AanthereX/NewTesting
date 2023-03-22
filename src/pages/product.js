@@ -1,12 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from 'next/link'
-import Rocket from '../../public/Rocket.png'
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Product.module.css";
 import { useEffect, useState } from "react";
 
-function Home() {
-  const [initialData, SetData] = useState([])
+function Product() {
+    const [initialData, SetData] = useState([])
 
   useEffect(() => {
     store()
@@ -21,7 +18,7 @@ function Home() {
       document.writeln(err+"please try again..")
     }
   };
-  store();
+  store()
 
   return (
     <>
@@ -32,10 +29,6 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.upperCont}>
-        <p className={styles.mainHead}>Store is Now Live<Image className={styles.rocketImg} src={Rocket} alt='shopislive'></Image> </p>
-      </div>
-
       <div className={styles.container}>
         {initialData.map((values) => {
           return (
@@ -43,10 +36,18 @@ function Home() {
               <div className={styles.outerBox}>
                 <div className="content">
                   <h4 className={styles.productName}>
-                    {values.title.slice(0, 30)}..
+                    {values.title.slice(0, 36)}..
                   </h4>
                   <p className={styles.para}>
+                    <span className={styles.label}>CATEGORY: </span>
+                    {values.category}
+                  </p>
+                  <p className={styles.para}>
                     {values.description.slice(0, 155)}..
+                  </p>
+                  <p className={styles.price}>
+                    <span className={styles.price}>PRICE: </span>
+                    ${values.price}
                   </p>
                 </div>
                 <img
@@ -54,15 +55,8 @@ function Home() {
                   src={values.image}
                   alt="product-image"
                 />
-                <p className={styles.price}>
-                    <span className={styles.price}>PRICE: </span>
-                    ${values.price}
-                </p>
-
-                <div className={styles.btnCont}>
-                  <Link className={styles.btn} href="/product">More Details</Link>
-                </div>
                 
+               
               </div>
             </>
           );
@@ -72,4 +66,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Product
